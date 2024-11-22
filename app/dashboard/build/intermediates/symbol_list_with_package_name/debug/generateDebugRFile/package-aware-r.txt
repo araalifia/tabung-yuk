@@ -1,0 +1,16 @@
+com.naveenapps.expensemanager.feature.dashboard
+string balance
+string categories
+string expense
+string guest
+string hello
+string help
+string home
+string income
+string no_transactions_available
+string ok
+string settings
+string total
+string transaction
+string transaction_create_message
+string transaction_summary
