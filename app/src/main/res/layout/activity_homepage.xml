@@ -61,36 +61,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/historylayout"
-            android:background="@android:color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/historyimage"
-                android:layout_width="22dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/history_icon"/>
-
-            <TextView
-                android:id="@+id/historytxt"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="history"
-                android:textStyle="bold"
-                android:textColor="@color/history"
-                android:layout_marginStart="10dp"
-                android:textSize="16sp"/>
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/analysislayout"
             android:background="@android:color/transparent"
             android:layout_width="wrap_content"
@@ -103,19 +73,50 @@
 
             <ImageView
                 android:id="@+id/analysisimage"
-                android:layout_width="25dp"
+                android:layout_width="22dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/analysis_icon"/>
+                android:src="@drawable/history_icon"/>
 
             <TextView
                 android:id="@+id/analysistxt"
                 android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Analytics"
+                android:text="history"
                 android:textStyle="bold"
-                android:textColor="@color/Analytics"
+                android:textColor="@color/history"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/goalslayout"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/goalsimage"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/goals_icon"/>
+
+            <TextView
+                android:id="@+id/goalstxt"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goals"
+                android:textStyle="bold"
+                android:textColor="@color/goals"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"/>
         </LinearLayout>

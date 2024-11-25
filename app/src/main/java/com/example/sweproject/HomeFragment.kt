@@ -1,12 +1,17 @@
 package com.example.sweproject
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.view.LayoutInflater
+import android.widget.Button
+import androidx.fragment.app.commit
+import com.example.sweproject.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,8 +28,9 @@ class HomeFragment : Fragment() {
     // Variables for saldo logic
     private lateinit var totalSaldo: TextView
     private lateinit var eyeIcon: ImageView
-    private var isSaldoVisible = true 
-    private var saldoAmount ="Rp10.250.000,-"
+    private var isSaldoVisible = true
+    private var saldoAmount ="Rp3,560,724"
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,19 +51,32 @@ class HomeFragment : Fragment() {
             toggleSaldoVisibility()
         }
 
+
         return view
     }
 
     // Method to toggle visibility of "Total Saldo"
     private fun toggleSaldoVisibility() {
         if (isSaldoVisible) {
-            totalSaldo.text = "******" // Hide saldo
-            eyeIcon.setImageResource(R.drawable.eye_icon) // Use closed-eye icon
+            totalSaldo.text = "********" // Hide saldo
+            eyeIcon.setImageResource(R.drawable.eye_closed_icon) // Use closed-eye icon
         } else {
             totalSaldo.text = saldoAmount // Show saldo
-            eyeIcon.setImageResource(R.drawable.eye_closed_icon) // Use open-eye icon
+            eyeIcon.setImageResource(R.drawable.eye_icon) // Use open-eye icon
         }
         isSaldoVisible = !isSaldoVisible // Toggle the state
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val transactionButton: Button = view.findViewById(R.id.transactionRedirect)
+        transactionButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, addTransaction())
+                .addToBackStack("AddTransaction") // Preserve navigation stack
+                .commit()
+        }
     }
 
     // TODO: Rename and change types of parameters
@@ -72,13 +91,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
 
     companion object {
         /**

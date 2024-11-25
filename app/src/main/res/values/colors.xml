@@ -4,14 +4,16 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name= "home"> #FBD44B</color>
-    <color name= "history"> #B68D40</color>
+    <color name= "history">#FFC30B </color>
+    <color name="goals">#FADA5E</color>
     <color name= "Analytics"> #D6AD60 </color>
-    <color name= "profile"> #F4EBD0</color>
+    <color name= "profile"> #FAEEC8</color>
 
     <color name= "home_20">#33FFD44B</color>
-    <color name= "history_20">#33B68D40</color>
+    <color name= "history_20">#33FFC30B</color>
+    <color name= "goals_20">#33FADA5E</color>
     <color name= "analysis_20">#33D6AD60</color>
-    <color name= "profile_20">#33F4EBD0</color>
+    <color name= "profile_20">#33FAEEC8</color>
 
 </resources>
 

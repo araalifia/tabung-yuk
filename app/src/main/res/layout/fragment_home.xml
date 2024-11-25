@@ -2,185 +2,351 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_home"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="437dp"
-        android:layout_height="380dp"
-        app:srcCompat="@drawable/rectangle_1"
-        tools:layout_editor_absoluteX="-13dp"
-        tools:layout_editor_absoluteY="-17dp" />
+
+    <View
+        android:id="@+id/gradientBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/gradient_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.50"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="342dp"
-        android:layout_height="86dp"
+        android:id="@+id/textView6"
+        android:layout_width="159dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="236dp"
+        android:layout_marginBottom="4dp"
         android:text="Selamat dateng di"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp"></TextView>
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/gradientBackground"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground">
+
+    </TextView>
 
     <ImageView
         android:id="@+id/eyeIcon"
         android:layout_width="33dp"
         android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="2dp"
         android:src="@drawable/eye_icon"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintEnd_toStartOf="@+id/totalSaldo"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="108dp"
         android:layout_height="21dp"
-        app:srcCompat="@drawable/tabungyuk_3"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="41dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/gradientBackground"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground"
+        app:srcCompat="@drawable/tabungyuk_3" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="16dp"
         android:text="Total Saldo"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="102dp" />
+        app:layout_constraintBottom_toTopOf="@+id/totalSaldo"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground" />
 
     <TextView
         android:id="@+id/totalSaldo"
         android:layout_width="189dp"
         android:layout_height="58dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="28dp"
         android:text="Rp 3,560,724"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="147dp" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintStart_toEndOf="@+id/eyeIcon"
+        app:layout_constraintTop_toTopOf="@+id/gradientBackground" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="127dp"
         android:layout_height="133dp"
-        app:srcCompat="@drawable/untitled_artwork_1"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="82dp" />
+        android:layout_marginStart="268dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/gradientBackground"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground"
+        app:srcCompat="@drawable/untitled_artwork_1" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="177dp"
         android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="31dp"
         android:background="@drawable/income_bg"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground"
+        app:layout_constraintTop_toBottomOf="@+id/totalSaldo" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="177dp"
+        android:layout_width="174dp"
         android:layout_height="60dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="21dp"
         android:background="@drawable/expense_bg"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="@+id/gradientBackground"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="69dp"
         android:text="Income"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="4dp"
         android:text="Expense"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ellipse_5"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="245dp" />
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="127dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7"
+        app:srcCompat="@drawable/ellipse_5" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bxs_bank_1"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="254dp" />
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:srcCompat="@drawable/bxs_bank_1" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ellipse_5__1_"
-        tools:layout_editor_absoluteX="225dp"
-        tools:layout_editor_absoluteY="245dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ellipse_5__1_" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bxs_wallet_alt_1"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="252dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        app:srcCompat="@drawable/bxs_wallet_alt_1" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
         android:text="Rp 2,000,000"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="259dp"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:textSize="14sp"/>
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="11dp"
         android:text="Rp 1,536,000"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="259dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/rectangle_2"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="309dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/gradientBackground"
+        app:layout_constraintStart_toStartOf="@+id/gradientBackground"
+        app:layout_constraintTop_toTopOf="@+id/gradientBackground"
+        app:srcCompat="@drawable/rectangle_2" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/riwayatRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="10dp"
         android:text="Create a Saving Goal"
         android:textSize="17sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="331dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="223dp"
         android:layout_height="65dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="21dp"
         android:text="Budget your money to set, track, and achieve your financial goals with ease."
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="364dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="60dp"
         android:layout_height="59dp"
-        app:srcCompat="@drawable/ellipse_4"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="346dp" />
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        app:srcCompat="@drawable/ellipse_4" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView13"
+        app:layout_constraintStart_toStartOf="@+id/imageView13"
+        app:layout_constraintTop_toTopOf="@+id/imageView13"
+        app:srcCompat="@drawable/icon_money" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="22dp"
+        android:text="Riwayat"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/historyRedirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="221dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="9dp"
+        android:text="See Details"
+        android:textColor="#FBD44B"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+    <ImageView
+        android:id="@+id/noHistoryIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="596dp"
+        android:src="@drawable/no_history_icon"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/transactionRedirect"
+        android:layout_width="46dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="352dp"
+        android:layout_marginTop="228dp"
+        android:backgroundTint="#FBD44B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/historyRedirect" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="24dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/transactionRedirect"
+        app:layout_constraintStart_toStartOf="@+id/transactionRedirect"
+        app:layout_constraintTop_toTopOf="@+id/transactionRedirect"
+        app:srcCompat="@drawable/add_button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
