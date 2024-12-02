@@ -77,7 +77,7 @@ class AddSavingsFragment : Fragment() {
         spinner = view.findViewById(R.id.Savingscategory)
 
         // Populate Spinner with categories
-        val categories = listOf("Education", "Travel", "Health", "Shopping","Emergency","Investment","Retirement","Home")
+        val categories = listOf("Daily", "Weekly", "Monthly", "Yearly")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
