@@ -77,7 +77,20 @@ class HomeFragment : Fragment() {
                 .addToBackStack("AddTransaction") // Preserve navigation stack
                 .commit()
         }
+
+        // Find the TextView by ID
+        val historyRedirect: TextView = view.findViewById(R.id.historyRedirect)
+
+        // Set the click listener
+        historyRedirect.setOnClickListener {
+            // Perform fragment transaction
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, HistoryFragment()) // Replace with the HistoryFragment
+                .addToBackStack("HistoryFragment") // Add to back stack for proper navigation
+                .commit()
+        }
     }
+
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null

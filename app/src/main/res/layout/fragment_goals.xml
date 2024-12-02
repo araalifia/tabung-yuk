@@ -1,16 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_add_transaction"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/goals"
-    tools:context=".goalsFragment">
+    android:background="#FFFFFF"
+    tools:ignore="ExtraText">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="128dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="255dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tabungyuk_3" />
+
     <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="goals"/>
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="292dp"
+        android:text="Savings"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/onGoingButton"
+        android:layout_width="154dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#ffffff"
+        android:text="On Going"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:strokeColor="#A39E8BA6"
+        app:strokeWidth="1.5dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/onGoingButton"
+        app:layout_constraintStart_toStartOf="@+id/onGoingButton"
+        app:layout_constraintTop_toTopOf="@+id/onGoingButton"
+        app:srcCompat="@drawable/rocket_icon" />
+
+    <Button
+        android:id="@+id/achievedButton"
+        android:layout_width="154dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#ffffff"
+        android:text="Achieved"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/onGoingButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#A39E8BA6"
+        app:strokeWidth="1.5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@+id/achievedButton"
+        app:layout_constraintTop_toTopOf="@+id/achievedButton"
+        app:srcCompat="@drawable/check_icon" />
+
+    <ImageView
+        android:id="@+id/goalsDetails"
+        android:layout_width="365dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/rectangle_goals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onGoingButton" />
+
+    <EditText
+        android:id="@+id/insertPic"
+        android:layout_width="339dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/picture_saving_bg"
+        app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toTopOf="@+id/goalsDetails" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="97dp"
+        android:text="Travel to Singapore"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/insertPic" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="85dp"
+        android:text="Rp 25.000.000"
+        android:textColor="#FBD44B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="9dp"
+        android:text="Rp. 1.000.000 Monthly"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/goalsDetails"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="96dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/goalsDetails"
+        app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/insertPic"
+        app:srcCompat="@drawable/progress_goals_bar" />
+
+    <ImageView
+        android:id="@+id/editText2"
+        android:layout_width="365dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/rectangle_goals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goalsDetails" />
+
+    <EditText
+        android:id="@+id/insertPic2"
+        android:layout_width="339dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/picture_saving_bg"
+        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toTopOf="@+id/editText2" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="181dp"
+        android:text="New car"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView20"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/insertPic2" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="75dp"
+        android:text="Rp 340.000.000"
+        android:textColor="#FBD44B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView20"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="8dp"
+        android:text="Rp 10.000.000 yearly"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText2"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="96dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/insertPic2"
+        app:srcCompat="@drawable/progress_goals_bar" />
+
+    <Button
+        android:id="@+id/AddGoalsButton"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="125dp"
+        android:backgroundTint="#FBD44B"
+        android:text="Add"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

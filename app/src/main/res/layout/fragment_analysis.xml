@@ -1,35 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_history"
+    android:id="@+id/fragment_add_transaction"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AnalysisFragment">
+    android:background="#FFFFFF"
+    tools:ignore="ExtraText">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center" />
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="115dp"
-        android:layout_height="29dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/screenshot_2024_10_28_at_18_14_45"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="35dp"/>
+        android:id="@+id/imageView5"
+        android:layout_width="128dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="255dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tabungyuk_3" />
 
     <TextView
-        android:layout_width="342dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="292dp"
         android:text="Insights"
+        android:textSize="17sp"
         android:textStyle="bold"
-        android:textSize="17sp">
-    </TextView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
+    <ImageView
+        android:id="@+id/calendarStart"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="31dp"
+        android:clickable="true"
+        android:contentDescription="Select Date"
+        android:focusable="true"
+        android:src="@drawable/calender_icon"
+        app:layout_constraintBottom_toTopOf="@+id/imageView19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="174dp"
+        android:text="March 2024"
+        android:textSize="15sp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/before"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/calendarStart"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:id="@+id/before"
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="31dp"
+        android:src="@drawable/back_calender"
+        app:layout_constraintBottom_toTopOf="@+id/imageView19"
+        app:layout_constraintEnd_toStartOf="@+id/after"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/after"
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="35dp"
+        android:src="@drawable/front_calender"
+        app:layout_constraintBottom_toTopOf="@+id/imageView19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="22dp"
+        android:src="@drawable/rectangle_goals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateText" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="168dp"
+        android:text="Income and Expenses"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView19"
+        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expenses"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="445dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

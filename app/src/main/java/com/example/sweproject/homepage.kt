@@ -1,5 +1,6 @@
 package com.example.sweproject
 
+import AnalysisFragment
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -20,12 +21,6 @@ class homepage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_homepage)
-
-
-        // Load default fragment (HomeFragment)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, HomeFragment())
-            .commit()
 
         val homeLayout: LinearLayout = findViewById(R.id.homelayout)
         val analysisLayout: LinearLayout = findViewById(R.id.analysislayout)
@@ -95,7 +90,7 @@ class homepage : AppCompatActivity() {
                 profileImage.setImageResource(R.drawable.profile_icon)
 
                 homeLayout.setBackgroundColor(resources.getColor(android.R.color.transparent))
-                analysisLayout.setBackgroundColor(resources.getColor(android.R.color.transparent))
+                goalsLayout.setBackgroundColor(resources.getColor(android.R.color.transparent))
                 profileLayout.setBackgroundColor(resources.getColor(android.R.color.transparent))
 
                 analysistxt.visibility = View.VISIBLE
@@ -148,7 +143,7 @@ class homepage : AppCompatActivity() {
             if (selectedTab != 4) {
                 hometxt.visibility = View.GONE
                 analysistxt.visibility = View.GONE
-                analysistxt.visibility = View.GONE
+                goalstxt.visibility = View.GONE
 
                 supportFragmentManager.beginTransaction()
                     .setReorderingAllowed(true)

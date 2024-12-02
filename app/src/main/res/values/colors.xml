@@ -15,5 +15,7 @@
     <color name= "analysis_20">#33D6AD60</color>
     <color name= "profile_20">#33FAEEC8</color>
 
+    <color name="incomeBlue">#6DB6FE</color>
+    <color name="expenseRed">#FF8F8F</color>
 </resources>
 

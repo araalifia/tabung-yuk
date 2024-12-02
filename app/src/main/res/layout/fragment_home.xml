@@ -334,7 +334,9 @@
         android:layout_height="53dp"
         android:layout_marginStart="352dp"
         android:layout_marginTop="228dp"
+        android:layout_marginBottom="114dp"
         android:backgroundTint="#FBD44B"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/historyRedirect" />
 

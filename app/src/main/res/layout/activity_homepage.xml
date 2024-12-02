@@ -83,7 +83,7 @@
                 android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="history"
+                android:text="Analysis"
                 android:textStyle="bold"
                 android:textColor="@color/history"
                 android:layout_marginStart="10dp"

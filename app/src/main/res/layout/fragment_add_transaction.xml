@@ -1,15 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_add_transaction"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addTransaction">
+    android:background="#FFFFFF"
+    tools:ignore="ExtraText">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="128dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="255dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tabungyuk_3" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="292dp"
+        android:text="Transaction"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
+    <Button
+        android:id="@+id/incomeButton"
+        android:layout_width="154dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="#ffffff"
+        android:text="Income"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:strokeColor="#A39E8BA6"
+        app:strokeWidth="1.5dp" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/incomeButton"
+        app:layout_constraintStart_toStartOf="@+id/incomeButton"
+        app:layout_constraintTop_toTopOf="@+id/incomeButton"
+        app:srcCompat="@drawable/arrow_up_icon" />
+
+    <Button
+        android:id="@+id/expenseButton"
+        android:layout_width="154dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#ffffff"
+        android:text="Expense"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/incomeButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#A39E8BA6"
+        app:strokeWidth="1.5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/expenseButton"
+        app:layout_constraintStart_toStartOf="@+id/expenseButton"
+        app:layout_constraintTop_toTopOf="@+id/expenseButton"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/arrow_down_icon" />
+
+    <ImageView
+        android:id="@+id/calendarIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="14dp"
+        android:clickable="true"
+        android:contentDescription="Select Date"
+        android:focusable="true"
+        android:src="@drawable/calender_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/incomeButton" /><!-- Replace with your calendar icon -->
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="243dp"
+        android:text="March 30, 2024"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/calendarIcon"
+        app:layout_constraintTop_toBottomOf="@+id/incomeButton" />
+
+    <EditText
+        android:id="@+id/editTextBox"
+        android:layout_width="351dp"
+        android:layout_height="53dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/round_bg_amount"
+        android:hint="Rp 0"
+        android:paddingStart="150dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarIcon" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="352dp"
+        android:text="Title"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBox" />
+
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="351dp"
+        android:layout_height="53dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="44dp"
+        android:paddingStart="30dp"
+        android:background="@drawable/round_bg_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/categoryTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="317dp"
+        android:text="Category"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTitle" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="352dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="43dp"
+        android:background="@drawable/round_bg_text"
+        android:dropDownWidth="match_parent"
+        android:padding="8dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryTxt" />
+
+    <TextView
+        android:id="@+id/NotesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="338dp"
+        android:text="Notes"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
+
+    <EditText
+        android:id="@+id/editNotes"
+        android:layout_width="350dp"
+        android:layout_height="142dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="29dp"
+        android:paddingStart="30dp"
+        android:background="@drawable/round_bg_notes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NotesTxt" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="125dp"
+        android:backgroundTint="#FBD44B"
+        android:text="Save"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNotes" />
+</androidx.constraintlayout.widget.ConstraintLayout>

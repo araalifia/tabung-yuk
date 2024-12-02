@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_add_transaction"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="128dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="255dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tabungyuk_3" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="292dp"
+        android:text="Savings"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageView
+        android:id="@+id/goalsDetails"
+        android:layout_width="365dp"
+        android:layout_height="316dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/rectangle_goals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <EditText
+        android:id="@+id/insertPic"
+        android:layout_width="339dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/picture_saving_bg"
+        app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toTopOf="@+id/goalsDetails" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="92dp"
+        android:text="Travel to Singapore"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/insertPic" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="81dp"
+        android:text="Rp 25.000.000"
+        android:textColor="#FBD44B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="78dp"
+        android:text="Rp. 1.000.000 Monthly"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="96dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="78dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line"
+        app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/insertPic"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/progress_goals_bar" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="335dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:background="#A39E8B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <TextView
+        android:id="@+id/madeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="213dp"
+        android:text="Made"
+        android:textColor="#A39E8B"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/madeDate"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toTopOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/targetTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="10dp"
+        android:text="Target"
+        android:textColor="#A39E8B"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/goalsDetails"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/madeTxt"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/madeDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="7dp"
+        android:text="March 30, 2024"
+        android:textColor="#A39E8B"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/targetDate"
+        app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
+        app:layout_constraintTop_toTopOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/targetDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="198dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="9dp"
+        android:text="January 30, 2025"
+        android:textColor="#A39E8B"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/goalsDetails"
+        app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
+        app:layout_constraintStart_toEndOf="@+id/targetTxt" />
+
+    <ImageView
+        android:id="@+id/rectangle"
+        android:layout_width="366dp"
+        android:layout_height="358dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/rectangle_goals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goalsDetails" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="335dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="39dp"
+        android:background="#A39E8B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <View
+        android:id="@+id/verticalLine"
+        android:layout_width="0.5dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="80dp"
+        android:background="#A39E8B"
+        app:layout_constraintEnd_toStartOf="@+id/Less"
+        app:layout_constraintStart_toEndOf="@+id/Collected"
+        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <TextView
+        android:id="@+id/Collected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="18dp"
+        android:text="Collected"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView41"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <TextView
+        android:id="@+id/Less"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="262dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="76dp"
+        android:text="Less"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/rectangle" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="16dp"
+        android:text="Rp 10.000.000"
+        android:textColor="#6DB6FE"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/line2"
+        app:layout_constraintEnd_toEndOf="@+id/verticalLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rectangle" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginEnd="39dp"
+        android:text="Rp 15.000.000"
+        android:textColor="#FF8F8F"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toBottomOf="@+id/Less" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="147dp"
+        android:text="March 30, 2024"
+        app:layout_constraintEnd_toStartOf="@+id/textView44"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/line2" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="44dp"
+        android:text="Rp 5.000.000"
+        android:textColor="#6DB6FE"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView46"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/line2" />
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="335dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="229dp"
+        android:background="#A39E8B"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="42dp"
+        android:text="Rp 5.000.000"
+        android:textColor="#6DB6FE"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/addSaving"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/line4" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="162dp"
+        android:text="April 30, 2024"
+        app:layout_constraintEnd_toStartOf="@+id/textView46"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/line4" />
+
+    <Button
+        android:id="@+id/addSaving"
+        android:layout_width="169dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/plus_circle_icone"
+        android:paddingStart="30dp"
+        android:text="Add Savings"
+        android:textColor="#6DB6FE"
+        app:layout_constraintBottom_toTopOf="@+id/takeSaving"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:strokeColor="#6DB6FE"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/takeSaving"
+        android:layout_width="169dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableLeft="@drawable/take_saving_icon"
+        android:paddingStart="30dp"
+        android:text="Take Savings"
+        android:textColor="#FF2F2F"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle"
+        app:layout_constraintStart_toStartOf="@+id/rectangle"
+        app:strokeColor="#FF2F2F"
+        app:strokeWidth="2dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
