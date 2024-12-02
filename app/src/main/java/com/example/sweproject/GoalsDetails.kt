@@ -61,7 +61,10 @@ class GoalsDetails : Fragment() {
         }
 
         dialog.show()
-        dialog.window?.setLayout(800, ViewGroup.LayoutParams.WRAP_CONTENT) // Adjust size if needed
+        // Set dialog to square size and center it
+        val window = dialog.window
+        window?.setLayout(300.dpToPx(), 300.dpToPx()) // Convert dp to pixels
+        window?.setBackgroundDrawableResource(android.R.color.transparent) // Optional: Rounded corners
     }
 
     private fun showTakeSavingsDialog() {
@@ -96,6 +99,12 @@ class GoalsDetails : Fragment() {
         }
 
         dialog.show()
-        dialog.window?.setLayout(800, ViewGroup.LayoutParams.WRAP_CONTENT) // Adjust size if needed
+        val window = dialog.window
+        window?.setLayout(300.dpToPx(), 300.dpToPx()) // Convert dp to pixels
+        window?.setBackgroundDrawableResource(android.R.color.transparent) // Optional: Rounded corners
+    }
+
+    private fun Int.dpToPx(): Int {
+        return (this * resources.displayMetrics.density).toInt()
     }
 }
