@@ -26,7 +26,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="236dp"
         android:layout_marginBottom="4dp"
-        android:text="Selamat dateng di"
+        android:text="Selamat datang di"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
@@ -80,7 +80,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="147dp"
         android:layout_marginEnd="28dp"
-        android:text="Rp 3,560,724"
+        android:text="Rp 0"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
@@ -204,7 +204,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="10dp"
-        android:text="Rp 2,000,000"
+        android:text="Rp 0"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
@@ -218,8 +218,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="11dp"
-        android:text="Rp 1,536,000"
-        android:textSize="14sp"
+        android:text="Rp 0"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
@@ -239,7 +239,6 @@
         app:srcCompat="@drawable/rectangle_2" />
 
     <TextView
-        android:id="@+id/riwayatRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
@@ -290,7 +289,7 @@
         app:srcCompat="@drawable/icon_money" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/historyRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -302,7 +301,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <TextView
-        android:id="@+id/historyRedirect"
+        android:id="@+id/riwayatRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="221dp"
@@ -313,7 +312,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/historyRedirect"
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <ImageView
@@ -338,7 +337,7 @@
         android:backgroundTint="#FBD44B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/historyRedirect" />
+        app:layout_constraintTop_toBottomOf="@+id/riwayatRedirect" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -350,5 +349,12 @@
         app:layout_constraintTop_toTopOf="@+id/transactionRedirect"
         app:srcCompat="@drawable/add_button" />
 
+    <ListView
+        android:id="@+id/transactionListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/riwayatRedirect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

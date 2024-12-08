@@ -2,18 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.sweproject.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_history"
-            app:destination="@id/navigation_history" />
-    </fragment>
+    app:navGraph="@navigation/mobile_navigation"
+    android:id="@+id/mobile_navigation">
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -21,15 +11,15 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_add_transaction" />
 
-
     <fragment
-        android:id="@+id/navigation_history"
+        android:id="@+id/historyFragment"
         android:name="com.example.sweproject.HistoryFragment"
-        tools:layout="@layout/fragment_history" >
+        android:label="HistoryFragment">
         <action
-            android:id="@+id/action_navigation_history_to_navigation_dashboard"
+            android:id="@+id/action_historyFragment_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
     </fragment>
+
     <fragment
         android:id="@+id/addSavingsFragment"
         android:name="com.example.sweproject.AddSavingsFragment"
@@ -89,5 +79,14 @@
         android:id="@+id/goalsDetails2"
         android:name="com.example.sweproject.GoalsDetails"
         android:label="GoalsDetails" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.sweproject.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+
 
 </navigation>

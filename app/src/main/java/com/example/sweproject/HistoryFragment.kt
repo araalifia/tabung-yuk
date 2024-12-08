@@ -1,54 +1,66 @@
 package com.example.sweproject
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HistoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HistoryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var transactionListView: ListView
+    private lateinit var transactionRepository: TransactionRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val transactionButton: Button = view.findViewById(R.id.transactionRedirect)
-        transactionButton.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, addTransaction())
-                .addToBackStack("AddTransaction") // Preserve navigation stack
-                .commit()
+        // Initialize views
+        transactionListView = view.findViewById(R.id.historyTransactionListView)
+        transactionRepository = TransactionRepository(requireContext())
+
+        // Update the transaction list
+        updateTransactionHistory()
+    }
+
+    private fun updateTransactionHistory() {
+        // Retrieve and sort transactions by date descending
+        val transactions = transactionRepository.getAllTransactions().sortedByDescending { it.date }
+
+        if (transactions.isEmpty()) {
+            transactionListView.visibility = View.GONE
+            view?.findViewById<TextView>(R.id.noHistoryText)?.visibility = View.VISIBLE
+        } else {
+            transactionListView.visibility = View.VISIBLE
+            view?.findViewById<TextView>(R.id.noHistoryText)?.visibility = View.GONE
+
+            // Create formatted transaction details
+            val transactionDetails = transactions.map { transaction ->
+                val typeLabel = when (transaction.type) {
+                    TransactionType.Income -> "Income"
+                    TransactionType.Expense -> "Expense"
+                }
+
+                "${transaction.date} - [$typeLabel] ${transaction.category}: Rp ${transaction.amount}\n" +
+                        "Title: ${transaction.title}\nNote: ${transaction.note}"
+            }
+
+            // Set the adapter
+            val adapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_list_item_1,
+                transactionDetails
+            )
+            transactionListView.adapter = adapter
         }
     }
 }

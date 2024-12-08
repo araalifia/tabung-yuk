@@ -11,12 +11,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.activity.result.contract.ActivityResultContracts
+
+data class Savings(
+    val category: String,
+    val startDate: String,
+    val endDate: String,
+    val imageUri: Uri?
+)
 
 class AddSavingsFragment : Fragment() {
 
@@ -26,9 +34,9 @@ class AddSavingsFragment : Fragment() {
     private lateinit var calendarIcon2: ImageView
     private lateinit var imageView: ImageView
     private lateinit var spinner: Spinner
+    private lateinit var saveButton: Button // Reference to SaveButton
     private var selectedImageUri: Uri? = null
 
-    // New way to handle activity results
     private val pickImageLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -37,8 +45,7 @@ class AddSavingsFragment : Fragment() {
                 if (selectedImageUri != null) {
                     imageView.setImageURI(selectedImageUri)
                 } else {
-                    Toast.makeText(requireContext(), "Error selecting image", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(requireContext(), "Error selecting image", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -47,17 +54,20 @@ class AddSavingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_savings, container, false)
 
-        // Initialize the ImageView
         dateText1 = view.findViewById(R.id.editStartDate)
         dateText2 = view.findViewById(R.id.editEndDate)
         calendarIcon1 = view.findViewById(R.id.calendarStart)
         calendarIcon2 = view.findViewById(R.id.calendarEnd)
         imageView = view.findViewById(R.id.uploadImage)
+        spinner = view.findViewById(R.id.Savingscategory)
 
-        // Set up the calendar icon click listener
+        val categories = listOf("Daily", "Weekly", "Monthly", "Yearly")
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categories)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
         calendarIcon1.setOnClickListener {
             showDatePickerStart()
         }
@@ -66,21 +76,17 @@ class AddSavingsFragment : Fragment() {
             showDatePickerEnd()
         }
 
-        // Set click listener on the ImageView
         imageView.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.type = "image/*"
             pickImageLauncher.launch(intent)
         }
 
-        // Initialize the Spinner
-        spinner = view.findViewById(R.id.Savingscategory)
-
-        // Populate Spinner with categories
-        val categories = listOf("Daily", "Weekly", "Monthly", "Yearly")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categories)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        // Initialize the Save button, changed to SaveButton
+        saveButton = view.findViewById(R.id.SaveButton) // Use the correct ID here
+        saveButton.setOnClickListener {
+            saveSavings()
+        }
 
         return view
     }
@@ -123,5 +129,21 @@ class AddSavingsFragment : Fragment() {
             "July", "August", "September", "October", "November", "December"
         )
         return months[month]
+    }
+
+    private fun saveSavings() {
+        val category = spinner.selectedItem.toString()
+        val startDate = dateText1.text.toString()
+        val endDate = dateText2.text.toString()
+
+        // Create Savings object
+        val savings = Savings(category, startDate, endDate, selectedImageUri)
+
+        // Find goalsFragment and call addSavings
+        val goalsFragment = parentFragmentManager.findFragmentById(R.id.fragmentContainer) as? goalsFragment
+        goalsFragment?.addSavings(savings)
+
+        // Navigate back
+        parentFragmentManager.popBackStack()
     }
 }

@@ -2,57 +2,72 @@ package com.example.sweproject
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.view.LayoutInflater
+import android.widget.ArrayAdapter
 import android.widget.Button
-import androidx.fragment.app.commit
-import com.example.sweproject.R
+import android.widget.ImageView
+import android.widget.ListView
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
 
     // Variables for saldo logic
     private lateinit var totalSaldo: TextView
+    private lateinit var totalIncomeText: TextView
+    private lateinit var totalExpensesText: TextView
+    private lateinit var transactionListView: ListView
     private lateinit var eyeIcon: ImageView
-    private var isSaldoVisible = true
-    private var saldoAmount ="Rp3,560,724"
 
+    private var isSaldoVisible = true
+    private var saldoAmount = "Rp0"
+    private lateinit var transactionRepository: TransactionRepository
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        transactionRepository = TransactionRepository(requireContext())
+
         // Initialize views
-        totalSaldo= view.findViewById(R.id.totalSaldo)
+        totalSaldo = view.findViewById(R.id.totalSaldo)
+        totalIncomeText = view.findViewById(R.id.textView12)
+        totalExpensesText = view.findViewById(R.id.textView13)
+        transactionListView = view.findViewById(R.id.transactionListView)
         eyeIcon = view.findViewById(R.id.eyeIcon)
 
         // Set initial saldo amount
-        totalSaldo.text = saldoAmount
+        updateSaldo()
 
         // Set up click listener for the eye icon
         eyeIcon.setOnClickListener {
             toggleSaldoVisibility()
         }
 
+        updateTransactionList()
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateSaldo()
+        updateTransactionList()
+    }
+
+    private fun updateSaldo() {
+        val totalIncome = transactionRepository.getTotalIncome()
+        val totalExpenses = transactionRepository.getTotalExpenses()
+        val totalBalance = transactionRepository.getTotalBalance()
+
+        totalSaldo.text = "${totalBalance}"
+        totalIncomeText.text = "Rp ${totalIncome}"
+        totalExpensesText.text = "Rp ${totalExpenses}"
     }
 
     // Method to toggle visibility of "Total Saldo"
@@ -61,7 +76,7 @@ class HomeFragment : Fragment() {
             totalSaldo.text = "********" // Hide saldo
             eyeIcon.setImageResource(R.drawable.eye_closed_icon) // Use closed-eye icon
         } else {
-            totalSaldo.text = saldoAmount // Show saldo
+            updateSaldo() // Show saldo
             eyeIcon.setImageResource(R.drawable.eye_icon) // Use open-eye icon
         }
         isSaldoVisible = !isSaldoVisible // Toggle the state
@@ -78,50 +93,43 @@ class HomeFragment : Fragment() {
                 .commit()
         }
 
-        // Find the TextView by ID
         val historyRedirect: TextView = view.findViewById(R.id.historyRedirect)
-
-        // Set the click listener
         historyRedirect.setOnClickListener {
-            // Perform fragment transaction
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, HistoryFragment()) // Replace with the HistoryFragment
-                .addToBackStack("HistoryFragment") // Add to back stack for proper navigation
+                .replace(R.id.fragmentContainer, HistoryFragment())
+                .addToBackStack("HistoryFragment") // Preserve navigation stack
                 .commit()
         }
+
+        updateSaldo()
+        updateTransactionList()
     }
 
+    private fun updateTransactionList() {
+        // Get the last 5 transactions
+        val transactions = transactionRepository.getAllTransactions().takeLast(3)
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+        if (transactions.isEmpty()) {
+            transactionListView.visibility = View.GONE
+            view?.findViewById<ImageView>(R.id.noHistoryIcon)?.visibility = View.VISIBLE
+        } else {
+            transactionListView.visibility = View.VISIBLE
+            view?.findViewById<ImageView>(R.id.noHistoryIcon)?.visibility = View.GONE
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            // Extract only title and amount
+            val transactionDetails = transactions.map { transaction ->
+                "${transaction.title}: Rp ${transaction.amount}"
+            }
+
+            // Set the adapter
+            val adapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_list_item_1,
+                transactionDetails
+            )
+            transactionListView.adapter = adapter
         }
     }
 
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

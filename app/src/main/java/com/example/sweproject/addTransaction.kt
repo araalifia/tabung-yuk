@@ -1,7 +1,7 @@
 package com.example.sweproject
 
 import android.app.DatePickerDialog
-import android.icu.util.Calendar
+import java.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,27 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
-import com.example.sweproject.R
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import java.util.Date
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [addTransaction.newInstance] factory method to
- * create an instance of this fragment.
- */
 class addTransaction : Fragment() {
     private lateinit var dateText: TextView
     private lateinit var calendarIcon: ImageView
     private lateinit var categorySpinner: Spinner
     private lateinit var incomeButton: Button
     private lateinit var expenseButton: Button
+    private lateinit var saveButton: Button
+    private var transactionType = TransactionType.Income
+    private lateinit var transactionRepository: TransactionRepository
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,12 +35,15 @@ class addTransaction : Fragment() {
         // Inflate the fragment layout
         val view = inflater.inflate(R.layout.fragment_add_transaction, container, false)
 
+        transactionRepository = TransactionRepository(requireContext())
+
         // Initialize views
         dateText = view.findViewById(R.id.dateText)
         calendarIcon = view.findViewById(R.id.calendarIcon)
         categorySpinner = view.findViewById(R.id.categorySpinner)
         incomeButton = view.findViewById(R.id.incomeButton)
         expenseButton = view.findViewById(R.id.expenseButton)
+        saveButton = view.findViewById(R.id.SaveButton)
 
         // Set up the spinner with default Income categories
         setupCategorySpinner(R.array.income_categories)
@@ -59,6 +59,9 @@ class addTransaction : Fragment() {
         }
         expenseButton.setOnClickListener {
             toggleTransactionType(isIncome = false)
+        }
+        saveButton.setOnClickListener {
+            saveTransaction()
         }
 
         return view
@@ -91,6 +94,7 @@ class addTransaction : Fragment() {
 
             // Update the spinner options for Income
             setupCategorySpinner(R.array.income_categories)
+            TransactionType.Income
         } else {
             // Change Expense button to red background
             expenseButton.setBackgroundColor(resources.getColor(R.color.expenseRed, null))
@@ -102,6 +106,7 @@ class addTransaction : Fragment() {
 
             // Update the spinner options for Expense
             setupCategorySpinner(R.array.expense_categories)
+            transactionType= TransactionType.Expense
         }
     }
 
@@ -127,5 +132,33 @@ class addTransaction : Fragment() {
             "July", "August", "September", "October", "November", "December"
         )
         return months[month]
+    }
+    private fun saveTransaction() {
+        val amount = view?.findViewById<EditText>(R.id.editTextBox)?.text.toString().toDoubleOrNull() ?: 0.0
+        val title = view?.findViewById<EditText>(R.id.editTitle)?.text.toString()  // Corrected from 'category'
+        val category = categorySpinner.selectedItem.toString()  // Use Spinner for category
+        val date = dateText.text.toString()
+        val note = view?.findViewById<EditText>(R.id.editNotes)?.text.toString()
+
+        if (amount > 0 && title.isNotEmpty()) {
+            // Corrected parameter order for the Transaction data class
+            val transaction = Transaction(
+                id = 0,  // Assuming auto-generated
+                type = transactionType,
+                amount = amount,
+                title = title,    // Corrected
+                category = category,  // Use selected spinner value
+                date = Calendar.getInstance().time,
+                note = note
+            )
+            transactionRepository.addTransaction(transaction)
+
+            // Navigate back to the home page
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, HomeFragment())
+                .commit()
+        } else {
+            Toast.makeText(requireContext(), "Amount and title must be filled", Toast.LENGTH_SHORT).show()
+        }
     }
 }
