@@ -13,24 +13,18 @@ import android.widget.Button
 import androidx.fragment.app.commit
 import com.example.sweproject.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
 
     // Variables for saldo logic
     private lateinit var totalSaldo: TextView
+    private lateinit var totalIncomeText: TextView 
+    private lateinit var totalExpensesText: TextView
+    private lateinit var transactionListView: ListView
     private lateinit var eyeIcon: ImageView
-    private var isSaldoVisible = true
-    private var saldoAmount ="Rp3,560,724"
 
+    private var isSaldoVisible = true
+    private var saldoAmount ="Rp0"
+    private var transactionRepository = TransactionRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,18 +35,32 @@ class HomeFragment : Fragment() {
 
         // Initialize views
         totalSaldo= view.findViewById(R.id.totalSaldo)
+        totalIncomeText = view.findViewById(R.id.textView12) // Assuming this is for total income 
+        totalExpensesText = view.findViewById(R.id.textView13)
+        transactionListView = view.findViewById(R.id.transactionListView)
         eyeIcon = view.findViewById(R.id.eyeIcon)
 
         // Set initial saldo amount
-        totalSaldo.text = saldoAmount
+       updateSaldo()
 
         // Set up click listener for the eye icon
         eyeIcon.setOnClickListener {
             toggleSaldoVisibility()
         }
 
+        updateTransactionList()
 
         return view
+    }
+
+    private fun updateSaldo() { 
+        val totalIncome = transactionRepository.getTotalIncome() 
+        val totalExpenses = transactionRepository.getTotalExpenses() 
+        val totalBalance = transactionRepository.getTotalBalance() 
+        
+        totalSaldo.text = "Total Balance: Rp ${totalBalance}" 
+        totalIncomeText.text = "Rp ${totalIncome}" 
+        totalExpensesText.text = "Rp ${totalExpenses}"
     }
 
     // Method to toggle visibility of "Total Saldo"
@@ -61,7 +69,7 @@ class HomeFragment : Fragment() {
             totalSaldo.text = "********" // Hide saldo
             eyeIcon.setImageResource(R.drawable.eye_closed_icon) // Use closed-eye icon
         } else {
-            totalSaldo.text = saldoAmount // Show saldo
+            updateSaldo() // Show saldo
             eyeIcon.setImageResource(R.drawable.eye_icon) // Use open-eye icon
         }
         isSaldoVisible = !isSaldoVisible // Toggle the state
@@ -89,7 +97,20 @@ class HomeFragment : Fragment() {
                 .addToBackStack("HistoryFragment") // Add to back stack for proper navigation
                 .commit()
         }
+
+        updateSaldo()
+        updateTransactionList()
     }
+
+    private fun updateTransactionList() { 
+        val transactions = transactionRepository.getAllTransactions().takeLast(5)
+        val transactionDetails = transactions.map { transaction -> 
+            "${transaction.type} ${transaction.category}: Rp ${transaction.amount}\n" + 
+                "Title: ${transaction.title}\nDate: ${transaction.date}\nNote: ${transaction.note}" 
+            }   
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, transactionDetails) 
+            transactionListView.adapter = adapter 
+        }
 
 
     // TODO: Rename and change types of parameters

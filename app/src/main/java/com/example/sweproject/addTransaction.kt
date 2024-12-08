@@ -128,4 +128,21 @@ class addTransaction : Fragment() {
         )
         return months[month]
     }
+    private fun saveTransaction() {
+        val amount = view?.findViewById<EditText>(R.id.editTextBox)?.text.toString().toDoubleOrNull() ?: 0.0
+        val category = view?.findViewById<EditText>(R.id.editTitle)?.text.toString()
+        val date = dateText.text.toString()
+        val note = view?.findViewById<EditText>(R.id.editNotes)?.text.toString()
+        
+        if (amount > 0 && category.isNotEmpty()) {
+            val transaction = Transaction(0, transactionType, amount, category, date, note) 
+            transactionRepository.addTransaction(transaction) 
+            
+            // Navigate back to the home page 
+            findNavController().navigate(R.id.action_addTransaction_to_homeFragment) 
+        } else { 
+            Toast.makeText(requireContext(), "Amount and category must be filled", Toast.LENGTH_SHORT).show() 
+        } 
+    } 
 }
+        
