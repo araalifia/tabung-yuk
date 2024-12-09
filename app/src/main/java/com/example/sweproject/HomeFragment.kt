@@ -1,6 +1,5 @@
 package com.example.sweproject
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
@@ -93,7 +91,7 @@ class HomeFragment : Fragment() {
                 .commit()
         }
 
-        val historyRedirect: TextView = view.findViewById(R.id.historyRedirect)
+        val historyRedirect: TextView = view.findViewById(R.id.riwayatRedirect)
         historyRedirect.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, HistoryFragment())
@@ -106,7 +104,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateTransactionList() {
-        // Get the last 5 transactions
+        // Get the last 3 transactions
         val transactions = transactionRepository.getAllTransactions().takeLast(3)
 
         if (transactions.isEmpty()) {

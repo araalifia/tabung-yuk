@@ -1,4 +1,3 @@
-
 package com.example.sweproject
 
 import android.app.AlertDialog
@@ -11,14 +10,22 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.sweproject.R
 
 class GoalsDetails : Fragment() {
+
+    private lateinit var monthlySavingsTextView: TextView // New variable to hold the monthly savings TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_goals_details, container, false)
+
+        // Original code...
+
+        // Initialize TextView for Monthly Savings
+        monthlySavingsTextView = view.findViewById(R.id.textView26) // Initialization of the new variable
 
         // Add Savings Button
         val addSavingButton: Button = view.findViewById(R.id.addSaving)
@@ -32,7 +39,28 @@ class GoalsDetails : Fragment() {
             showTakeSavingsDialog()
         }
 
+        // Example values - replace these with actual values from the user's input or database
+        val targetAmount = 25000000.0 // Example total savings goal
+        val durationType = "Monthly" // Example duration type
+        val currentSavings = 1000000.0 // Example current savings amount
+
+        // Update the savings information without removing existing logic
+        updateSavingsInfo(targetAmount, durationType, currentSavings)
+
         return view
+    }
+
+    private fun updateSavingsInfo(targetAmount: Double, durationType: String, savedAmount: Double) { // New method for savings calculation
+        val requiredSavings: Double
+        when (durationType) {
+            "Daily" -> requiredSavings = targetAmount / 30 // Assuming 30 days in a month
+            "Weekly" -> requiredSavings = targetAmount / 4 // Assuming 4 weeks in a month
+            "Monthly" -> requiredSavings = targetAmount // Monthly saving
+            "Yearly" -> requiredSavings = targetAmount / 12 // Monthly saving from yearly goal
+            else -> requiredSavings = 0.0
+        }
+
+        monthlySavingsTextView.text = "Monthly Savings: Rp ${requiredSavings.toInt()}" // Update the TextView
     }
 
     private fun showAddSavingsDialog() {

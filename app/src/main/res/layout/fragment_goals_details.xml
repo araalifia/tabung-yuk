@@ -182,6 +182,19 @@
         app:layout_constraintEnd_toEndOf="@+id/goalsDetails"
         app:layout_constraintStart_toEndOf="@+id/targetTxt" />
 
+    <TextView
+        android:id="@+id/monthlySavings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Monthly Savings: Rp X"
+        android:textSize="16sp"
+        android:textColor="#FBD44B"
+        app:layout_constraintStart_toStartOf="@+id/goalsDetails"
+        app:layout_constraintTop_toBottomOf="@+id/line2"/>
+
     <ImageView
         android:id="@+id/rectangle"
         android:layout_width="366dp"

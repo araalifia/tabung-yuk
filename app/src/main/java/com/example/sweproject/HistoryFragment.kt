@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -23,6 +24,14 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val transactionButton: Button = view.findViewById(R.id.transactionRedirect)
+        transactionButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, addTransaction())
+                .addToBackStack("AddTransaction") // Preserve navigation stack
+                .commit()
+        }
 
         // Initialize views
         transactionListView = view.findViewById(R.id.historyTransactionListView)

@@ -143,7 +143,10 @@ class AddSavingsFragment : Fragment() {
         val goalsFragment = parentFragmentManager.findFragmentById(R.id.fragmentContainer) as? goalsFragment
         goalsFragment?.addSavings(savings)
 
-        // Navigate back
+        // Optionally, show a confirmation message
+        Toast.makeText(requireContext(), "Savings saved!", Toast.LENGTH_SHORT).show()
+
+        // Navigate back to the goals fragment
         parentFragmentManager.popBackStack()
     }
 }
