@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sweproject.R
 
-class dGoalsDetails : Fragment() {
+class GoalsDetails : Fragment() {
 
     private lateinit var monthlySavingsTextView: TextView // New variable to hold the monthly savings TextView
 
